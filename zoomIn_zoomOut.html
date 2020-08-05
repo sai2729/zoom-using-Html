@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Zoom</title>
+        <script type="text/javascript">
+            var IntervalId=0;
+            var difference=2;
+            var width=100;
+            function zoomin(){
+                window.clearInterval(IntervalId);
+                IntervalId=window.setInterval(expand,20);
+            }
+            function zoomout(){
+                window.clearInterval(IntervalId);
+                IntervalId=window.setInterval(reduce,20);
+            }
+            function expand(){
+                if(width<200){
+                    width=width+difference;
+                    img=document.getElementById("heart").width=width;
+                }
+                else{
+                    window.clearInterval(IntervalId);
+                }
+            }
+            function reduce(){
+                if(width>100){
+                    width=width-difference;
+                    img=document.getElementById("heart").width=width;
+                }
+                else{
+                    window.clearInterval(IntervalId);
+                }
+            }
+
+        </script>
+    </head>
+    <body style="margin-top: 15%;">
+        <center>
+            <img id="heart" onmouseover="zoomin()" onmouseout="zoomout()" src="images/heart.png" width="100">
+        </center>
+
+    </body> 
+</html>
